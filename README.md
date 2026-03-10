@@ -33,7 +33,10 @@ Le déterminant doit être premier avec 26. Si cette condition n'est pas respect
 
 **Clé utilisée dans ce projet :**
 
-$$K = \begin{bmatrix} 3 & 3 \\ 2 & 5 \end{bmatrix} \implies \det(K) = 9, \quad \text{pgcd}(9, 26) = 1 \checkmark$$
+$$
+K = \begin{bmatrix} 3 & 3 \\ 2 & 5 \end{bmatrix}, \quad
+\det(K) = 9, \quad \gcd(9, 26) = 1 \checkmark
+$$
 
 ---
 
