@@ -26,14 +26,14 @@ $$\mathbf{v} = K^{-1} \cdot \mathbf{c} \pmod{26}$$
 
 On ne peut pas choisir n'importe quelle matrice comme clé. Pour que le déchiffrement soit possible, $K$ doit être inversible dans $\mathbb{Z}/26\mathbb{Z}$, ce qui exige :
 
-$$\gcd\left(\det(K), 26\right) = 1$$
+$$\operatorname{gcd}\left(\det(K), 26\right) = 1$$
 
 Le déterminant doit être premier avec 26. Si cette condition n'est pas respectée, plusieurs messages clairs produisent le même message chiffré, ce qui rend le déchiffrement ambigu et impossible.
 
 
 **Clé utilisée dans ce projet :**
 
-$$K = \left(\begin{array}{cc} 3 & 3 \\ 2 & 5 \end{array}\right) \implies \det(K) = 9, \quad \gcd(9, 26) = 1 \checkmark$$
+$$K = \begin{bmatrix} 3 & 3 \\ 2 & 5 \end{bmatrix} \implies \det(K) = 9, \quad \operatorname{gcd}(9, 26) = 1 \checkmark$$
 
 ---
 
