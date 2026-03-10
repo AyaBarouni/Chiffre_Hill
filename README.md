@@ -26,14 +26,14 @@ $$\mathbf{v} = K^{-1} \cdot \mathbf{c} \pmod{26}$$
 
 On ne peut pas choisir n'importe quelle matrice comme clé. Pour que le déchiffrement soit possible, $K$ doit être inversible dans $\mathbb{Z}/26\mathbb{Z}$, ce qui exige :
 
-$$\pgcd\!\left(\det(K),\ 26\right) = 1$$
+$$\gcd\!\left(\det(K),\ 26\right) = 1$$
 
 Le déterminant doit être **premier avec 26**. Si cette condition n'est pas respectée, plusieurs messages clairs produisent le même message chiffré, ce qui rend le déchiffrement ambigu et impossible.
 
 
 **Clé utilisée dans ce projet :**
 
-$$K = \begin{pmatrix} 3 & 3 \\ 2 & 5 \end{pmatrix} \implies \det(K) = 9, \quad \pgcd(9, 26) = 1 \checkmark$$
+$$K = \begin{pmatrix} 3 & 3 \\ 2 & 5 \end{pmatrix} \implies \det(K) = 9, \quad \gcd(9, 26) = 1 \checkmark$$
 
 ---
 
@@ -108,10 +108,5 @@ Message chiffré   : TCZGI
 
 - Comprendre pourquoi le choix de la clé est une contrainte mathématique forte : un mauvais déterminant crée des collisions, ce qui rend le déchiffrement structurellement impossible
 - Relier le principe de diffusion de Shannon à un comportement concret et observable du chiffrement matriciel
-
-## Ce que j'ai appris
-
-- Appliquer l'algèbre linéaire modulaire à un problème concret de cryptographie
-- Comprendre pourquoi le choix de la clé est une contrainte mathématique forte, pas un simple paramètre
 - Manipuler des matrices et des vecteurs avec `numpy` pour des calculs arithmétiques modulo $n$
 - Gérer la robustesse du programme : vérification automatique de la validité de la clé avec `math.gcd` avant tout chiffrement, plutôt que de laisser l'erreur survenir silencieusement
