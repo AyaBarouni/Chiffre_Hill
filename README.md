@@ -6,7 +6,7 @@ Implémentation en Python du Chiffre de Hill : chiffrement d'un message par mult
 
 ## Contexte
 
-Le Chiffre de Hill est un système de chiffrement symétrique classique introduit par Lester S. Hill en 1929. Contrairement aux chiffrements par substitution simple (comme César), il opère sur des **blocs de lettres** grâce à l'algèbre linéaire, ce qui lui confère une propriété importante en cryptographie : la **diffusion**. Il constitue l'un des premiers exemples de chiffrement exploitant des structures mathématiques avancées.
+Le Chiffre de Hill est un système de chiffrement symétrique classique introduit par Lester S. Hill en 1929. Contrairement aux chiffrements par substitution simple (comme César), il opère sur des blocs de lettres grâce à l'algèbre linéaire, ce qui lui confère une propriété importante en cryptographie : la diffusion. Il constitue l'un des premiers exemples de chiffrement exploitant des structures mathématiques avancées.
 
 ---
 
@@ -26,27 +26,27 @@ $$\mathbf{v} = K^{-1} \cdot \mathbf{c} \pmod{26}$$
 
 On ne peut pas choisir n'importe quelle matrice comme clé. Pour que le déchiffrement soit possible, $K$ doit être inversible dans $\mathbb{Z}/26\mathbb{Z}$, ce qui exige :
 
-$$\gcd\!\left(\det(K),\ 26\right) = 1$$
+$$\gcd\left(\det(K), 26\right) = 1$$
 
-Le déterminant doit être **premier avec 26**. Si cette condition n'est pas respectée, plusieurs messages clairs produisent le même message chiffré, ce qui rend le déchiffrement ambigu et impossible.
+Le déterminant doit être premier avec 26. Si cette condition n'est pas respectée, plusieurs messages clairs produisent le même message chiffré, ce qui rend le déchiffrement ambigu et impossible.
 
 
 **Clé utilisée dans ce projet :**
 
-$$K = \begin{pmatrix} 3 & 3 \\ 2 & 5 \end{pmatrix} \implies \det(K) = 9, \quad \gcd(9, 26) = 1 \checkmark$$
+$$K = \left(\begin{array}{cc} 3 & 3 \\ 2 & 5 \end{array}\right) \implies \det(K) = 9, \quad \gcd(9, 26) = 1 \checkmark$$
 
 ---
 
 ## Diffusion de Shannon
 
-L'un des principes fondamentaux de la cryptographie moderne (Shannon, 1949) est la **diffusion** : modifier un seul caractère du message clair doit modifier l'intégralité du bloc chiffré correspondant, rendant l'analyse statistique très difficile pour un attaquant.
+L'un des principes fondamentaux de la cryptographie moderne (Shannon, 1949) est la diffusion : modifier un seul caractère du message clair doit modifier l'intégralité du bloc chiffré correspondant, rendant l'analyse statistique très difficile pour un attaquant.
 
 | Message clair | Modification | Message chiffré |
 |---|---|---|
 | `HI` | -- | `TC` |
 | `HJ` | I → J (+1 dans l'alphabet) | `WH` |
 
-Changer uniquement la deuxième lettre modifie **les deux lettres** du bloc de sortie, car la multiplication matricielle mélange les contributions de chaque caractère sur l'ensemble du bloc.
+Changer uniquement la deuxième lettre modifie les deux lettres du bloc de sortie, car la multiplication matricielle mélange les contributions de chaque caractère sur l'ensemble du bloc.
 
 ---
 
@@ -100,7 +100,7 @@ Message chiffré   : TCZGI
 |---|---|
 | `hill.py` | Code source Python |
 | `preuve_hill.pdf` | Fiche théorique : condition d'inversibilité, exemple d'échec, diffusion de Shannon |
-| `calculs.pdf` | Partie manuscrite : algorithme d'Euclide étendu, matrice adjointe, calcul de $K^{-1}$, vérification $K \cdot K^{-1} = I_2$ |
+| `calculs.pdf` | Partie manuscrite : algorithme d'Euclide étendu, matrice adjointe, calcul de $K^{-1}$ |
 
 ---
 
