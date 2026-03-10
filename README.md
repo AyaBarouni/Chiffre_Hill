@@ -33,8 +33,11 @@ Le déterminant doit être premier avec 26. Si cette condition n'est pas respect
 
 **Clé utilisée dans ce projet :**
 
-K = [[3, 3],
-     [2, 5]]  => det(K) = 9, pgcd(9, 26) = 1 ✓
+| 3 | 3 |
+|---|---| (Voir matrice dans le fichier preuve_hill)
+| 2 | 5 |
+
+det(K) = 9, pgcd(9, 26) = 1 ✓
 
 ---
 
